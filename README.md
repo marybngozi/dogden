@@ -1,19 +1,28 @@
 # dogden
 
+A dog show site, interview task for Eden Front-end role
+[Dogden](https://cli.vuejs.org/config/)
+
 ## Project setup
+
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 yarn serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 yarn build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Lints and fixes files
+
+```
+yarn lint
+```
