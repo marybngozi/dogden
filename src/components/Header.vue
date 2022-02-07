@@ -4,7 +4,7 @@
   >
     <div>
       <router-link to="/" title="Dogden">
-        <img src="@/assets/logo.png" class="w-16" alt="Dogden Logo" />
+        <img src="@/assets/img/logo.png" class="w-16" alt="Dogden Logo" />
         <span class="sr-only">Dogden</span>
       </router-link>
     </div>

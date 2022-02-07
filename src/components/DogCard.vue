@@ -1,13 +1,18 @@
 <template>
   <router-link :to="`/dog/${id}`">
-    <img :src="dog.image" :alt="dog.author" class="h-auto w-100 p-2" />
+    <ImageItem :src="dog.image" :name="dog.author" class="h-auto w-100 p-2" />
     <span class="sr-only">{{ dog.author }}</span>
   </router-link>
 </template>
 
 <script>
+import ImageItem from "./ImageItem.vue";
+
 export default {
   name: "DogCard",
+  components: {
+    ImageItem,
+  },
   props: {
     id: {
       type: Number,
