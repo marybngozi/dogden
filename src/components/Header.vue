@@ -1,5 +1,7 @@
 <template>
-  <header class="shadow h-50 flex justify-between items-center px-3 pt-4">
+  <header
+    class="bg-white w-full shadow h-20 flex justify-between items-center px-3 fixed top-0 left-0 right-0"
+  >
     <div>
       <router-link to="/" title="Dogden">
         <img src="@/assets/logo.png" class="w-16" alt="Dogden Logo" />
@@ -8,6 +10,7 @@
     </div>
 
     <form
+      v-if="$route.path === '/'"
       @click.prevent="searchDogs"
       action=""
       class="from-cyan via-pink to-yellow bg-gradient-to-br"
@@ -20,7 +23,7 @@
             autofocus
             type="search"
             class="w-full px-4 py-1 text-gray-800 rounded-full focus:outline-none"
-            placeholder="search dogs"
+            placeholder="search by breed"
             v-model="searchText"
           />
         </div>
@@ -69,7 +72,7 @@ export default {
   },
   methods: {
     searchDogs() {
-      this.$emit("searchDogs", this.searchText);
+      // TOoDO  call the search in the store
       return true;
     },
   },

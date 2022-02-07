@@ -71,3 +71,19 @@
   white-space: nowrap;
   border-width: 0;
 }
+
+/* .static {
+  position: static;
+}
+.fixed {
+  position: fixed;
+}
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.sticky {
+  position: sticky;
+} */
