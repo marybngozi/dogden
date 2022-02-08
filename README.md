@@ -1,7 +1,7 @@
 # dogden
 
 A dog show site, interview task for Eden Front-end role
-[Dogden](https://cli.vuejs.org/config/)
+[Dogden](https://dogden.netlify.app/)
 
 ## Project setup
 
