@@ -36,10 +36,10 @@ registerRoute(
   })
 );
 
-registerRoute(
-  ({ url }) => url.pathname.startsWith("https://dog.ceo/api/"),
-  new StaleWhileRevalidate()
-);
+registerRoute(({ url }) => {
+  console.log(url.pathname);
+  return url.pathname.startsWith("https://dog.ceo/api/");
+}, new StaleWhileRevalidate());
 
 registerRoute(
   ({ url }) => url.pathname.startsWith("https://fakerapi.it/api/"),
