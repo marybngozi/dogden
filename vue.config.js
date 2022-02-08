@@ -6,11 +6,11 @@ module.exports = {
     themeColor: "#624040",
     msTileColor: "#000000",
     // configure the workbox plugin
-    // workboxPluginMode: "InjectManifest",
-    // workboxOptions: {
-    //   // swSrc is required in InjectManifest mode.
-    //   swSrc: "sw.js",
-    //   // ...other Workbox options...
-    // },
+    workboxPluginMode: "InjectManifest",
+    workboxOptions: {
+      // swSrc is required in InjectManifest mode.
+      swSrc: "service-worker.js",
+      // ...other Workbox options...
+    },
   },
 };

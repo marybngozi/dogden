@@ -7,6 +7,7 @@ const fakeAPI = "https://fakerapi.it/api/v1/texts"; // API for dummy texts
 export default createStore({
   state: {
     dogs: [],
+    firstLoad: true,
     loading: false,
     breed: "hound",
   },
@@ -31,6 +32,7 @@ export default createStore({
         let dogUrl = dogAPI;
 
         if (payload) {
+          state.firstLoad = false;
           state.breed = payload.breed;
         }
 
@@ -51,7 +53,7 @@ export default createStore({
         let dogsLength = dogs.length;
 
         // TODO limit the dogs array length
-        if (!payload) {
+        if (!state.firstLoad) {
           dogsLength = 104;
           dogs = dogs.slice(0, dogsLength);
         }

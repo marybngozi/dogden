@@ -19,8 +19,6 @@
           />
           <span>Back</span>
         </router-link>
-
-        <h3 class="uppercase fs-4">{{ dog.author }}</h3>
       </div>
 
       <section class="w-11/12 md:w-8/12 mx-auto mb-10">
@@ -30,8 +28,12 @@
             {{ dog.author }}
           </figcaption>
         </figure>
-        <h4 class="py-4 text-brown"><b>Genre: </b>{{ dog.genre }}</h4>
-        <p class="fs-6 text-justify">{{ dog.content }}</p>
+        <article class="w-full lg:w-8/12 mx-auto">
+          <h3 class="uppercase fs-4 text-brown py-3">{{ dog.author }}</h3>
+          <p class="fs-6 text-justify">
+            {{ dog.content }}
+          </p>
+        </article>
       </section>
     </main>
   </div>
@@ -79,7 +81,9 @@ figure {
 }
 figure img {
   width: 100%;
-  height: auto;
+  object-fit: contain;
+  @apply rounded;
+  height: 30rem;
   /* max-height: 100%; */
 }
 </style>
