@@ -1,6 +1,6 @@
 const { precacheAndRoute } = workbox.precaching;
 const { registerRoute } = workbox.routing;
-const { CacheFirst } = workbox.strategies;
+const { CacheFirst, StaleWhileRevalidate } = workbox.strategies;
 const { ExpirationPlugin } = workbox.expiration;
 const { CacheableResponsePlugin } = workbox.cacheableResponse;
 
@@ -30,8 +30,18 @@ registerRoute(
       }),
       new ExpirationPlugin({
         maxEntries: 60,
-        maxAgeSeconds: 30 * 24 * 60 * 60, // cache the images for only 30 Days
+        maxAgeSeconds: 2 * 24 * 60 * 60, // cache the images for only 2 Days
       }),
     ],
   })
+);
+
+registerRoute(
+  ({ url }) => url.pathname.startsWith("https://dog.ceo/api/"),
+  new StaleWhileRevalidate()
+);
+
+registerRoute(
+  ({ url }) => url.pathname.startsWith("https://fakerapi.it/api/v1/texts"),
+  new StaleWhileRevalidate()
 );
