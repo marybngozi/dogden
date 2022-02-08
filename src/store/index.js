@@ -39,6 +39,7 @@ export default createStore({
         dogUrl += `breed/${state.breed}/images`;
 
         let { data: dogs } = await axios.get(dogUrl);
+        console.log({ dddddd: dogs.length });
 
         // return an empty array if no dog is found
         if (!Array.isArray(dogs.message) || !dogs.message.length) {
