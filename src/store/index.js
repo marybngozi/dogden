@@ -53,7 +53,7 @@ export default createStore({
         let dogsLength = dogs.length;
 
         // TODO limit the dogs array length
-        if (!state.firstLoad) {
+        if (state.firstLoad) {
           dogsLength = 104;
           dogs = dogs.slice(0, dogsLength);
         }
