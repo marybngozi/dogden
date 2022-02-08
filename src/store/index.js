@@ -1,8 +1,8 @@
 import { createStore } from "vuex";
 import axios from "axios";
+import Texts from "../../texts";
 
 const dogAPI = "https://dog.ceo/api/";
-const fakeAPI = "https://fakerapi.it/api/v1/texts"; // API for dummy texts
 
 export default createStore({
   state: {
@@ -58,10 +58,7 @@ export default createStore({
           dogs = dogs.slice(0, dogsLength);
         }
 
-        let { data: fakeInfo } = await axios.get(
-          `${fakeAPI}?_quantity=${dogsLength}`
-        );
-        fakeInfo = fakeInfo.data;
+        let fakeInfo = Texts.slice(0, dogsLength);
 
         // append the dogs images to the fakeInfo data
         for (let i = 0; i < dogs.length; i++) {
