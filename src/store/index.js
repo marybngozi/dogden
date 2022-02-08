@@ -39,7 +39,6 @@ export default createStore({
         dogUrl += `breed/${state.breed}/images`;
 
         let { data: dogs } = await axios.get(dogUrl);
-        console.log({ dddddd: dogs.length });
 
         // return an empty array if no dog is found
         if (!Array.isArray(dogs.message) || !dogs.message.length) {
@@ -52,6 +51,7 @@ export default createStore({
         // get the length of the array of dogs returned
         dogs = dogs.message;
         let dogsLength = dogs.length;
+        console.log({ dddddd: dogs.length });
 
         // TODO limit the dogs array length
         if (state.firstLoad) {
