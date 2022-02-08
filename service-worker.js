@@ -42,6 +42,6 @@ registerRoute(
 );
 
 registerRoute(
-  ({ url }) => url.pathname.startsWith("https://fakerapi.it/api/v1/texts"),
+  ({ url }) => url.pathname.startsWith("https://fakerapi.it/api/"),
   new StaleWhileRevalidate()
 );
