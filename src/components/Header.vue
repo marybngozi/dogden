@@ -9,10 +9,9 @@
       </router-link>
     </div>
 
+    <!-- @submit.prevent="searchDogs" -->
     <form
       v-if="$route.path === '/'"
-      @click.prevent="searchDogs"
-      action=""
       class="from-cyan via-pink to-yellow bg-gradient-to-br"
     >
       <div
@@ -21,10 +20,11 @@
         <div class="w-full">
           <input
             autofocus
+            name="searchText"
             type="search"
-            class="w-full px-4 py-1 text-gray-800 rounded-full focus:outline-none"
+            class="w-full px-4 py-1 text-gray-800 focus:outline-none"
             placeholder="search by breed"
-            v-model="searchText"
+            v-model.trim="searchText"
           />
         </div>
 
@@ -38,7 +38,8 @@
                 ? 'bg-brown'
                 : 'bg-brown-light cursor-not-allowed'
             "
-            :disabled="searchText.length == 0"
+            @click.prevent="searchDogs"
+            :disabled="!searchText"
           >
             <svg
               class="w-5 h-5"
@@ -63,6 +64,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "Header",
   data() {
@@ -71,8 +74,17 @@ export default {
     };
   },
   methods: {
-    searchDogs() {
+    ...mapActions(["getDogs"]),
+
+    async searchDogs() {
+      if (!this.searchText || this.searchText.trim() == "") {
+        return;
+      }
+
       // TOoDO  call the search in the store
+      await this.getDogs({ breed: this.searchText });
+
+      // this.searchText = "";
       return true;
     },
   },
@@ -80,4 +92,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+header {
+  z-index: 200;
+}
+</style>

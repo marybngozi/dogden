@@ -33,6 +33,7 @@ export default {
   opacity: 1;
 }
 .image__wrapper {
+  position: relative;
   display: block;
 }
 .image__item {
