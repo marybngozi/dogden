@@ -1,8 +1,8 @@
 const { precacheAndRoute } = workbox.precaching;
 const { registerRoute } = workbox.routing;
 const { CacheFirst, StaleWhileRevalidate } = workbox.strategies;
-const { ExpirationPlugin } = workbox.expiration;
-const { CacheableResponsePlugin } = workbox.cacheableResponse;
+const { Plugin: ExpirationPlugin } = workbox.expiration;
+const { Plugin: CacheableResponsePlugin } = workbox.cacheableResponse;
 
 workbox.core.setCacheNameDetails({ prefix: "dogden" });
 
